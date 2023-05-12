@@ -1,0 +1,108 @@
+<p>login works!</p>
+<div class="fondologin"></div>
+<div class="grad"></div>
+
+<div class="cuerpo">
+  <mat-toolbar color="primary" class="mat-elevation-z8 barra">
+    <mat-toolbar-row>
+      <span>SOL REDES</span>
+      <span class="example-spacer"></span>
+      <span> Herramienta para construccíon y supervisión de proyectos de electrificación rural</span>
+      <span class="example-spacer"></span>
+      <!-- <button mat-icon-button class="example-icon buttonVersion" aria-label="Example icon-button with share icon"
+        (click)="openDialog()">
+        1.1.6<mat-icon>keyboard_arrow_down</mat-icon>
+      </button> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <br />
+
+  <div class="login-contenedor">
+    <div class="container" id="container">
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <br>
+          <br>
+          <h1>Acceso</h1>
+          <br>
+          <div class="social-container">            
+              <img src="../../../../assets/images/user3.png" width="100px">
+          </div>
+          <form class="example-container" #newForm="ngForm" (ngSubmit)="login(newForm)">
+            <mat-form-field class="example-full-width">
+              <mat-label>Usuario</mat-label>
+              <input matInput name="c_username" #c_username="ngModel" [(ngModel)]="dataLogin.c_username" required>
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="{{typepassword}}" name="c_clave" #c_clave="ngModel" [(ngModel)]="dataLogin.c_clave"
+                required />
+              <mat-icon matSuffix (click)="changetipepassword()">{{iconpassword}}</mat-icon>
+            </mat-form-field>
+            <div class="submitload">
+              <button mat-raised-button *ngIf="!flag" type="submit" color="primary" mat-button
+                matTooltip="Permite acceder a la plataforma" [disabled]="!newForm.form.valid" class="btnicon">
+
+                <span>Ingresar</span>
+
+              </button>
+              <!-- <mat-spinner *ngIf="flag"></mat-spinner> -->
+            </div>
+          </form>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <img src="../../../../assets/images/logo.png" width="450px">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<mat-card class="example-card">
+
+      <mat-card-header>
+        <h1>Acceso</h1>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="img">
+            <img src="../../../../assets/images/user1.png" >
+          </div>   
+        <form class="example-container" #newForm="ngForm" (ngSubmit)="login(newForm)">
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Usuario</mat-label>
+            <input matInput name="c_username" #c_username="ngModel" [(ngModel)]="dataLogin.c_username" required>
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="{{typepassword}}" name="c_clave" #c_clave="ngModel" [(ngModel)]="dataLogin.c_clave"
+              required />
+            <mat-icon matSuffix (click)="changetipepassword()">{{iconpassword}}</mat-icon>
+          </mat-form-field>
+          <div class="submitload">
+            <button mat-raised-button *ngIf="!flag" type="submit" color="primary" mat-button
+              matTooltip="Permite acceder a la plataforma" [disabled]="!newForm.form.valid" class="btnicon">
+
+              <span>Ingresar</span>
+
+            </button>
+            <mat-spinner *ngIf="flag"></mat-spinner>
+          </div>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <label class="errorLogin" *ngIf="!resultado">{{resultado.cMensaje}}</label>
+      </mat-card-actions>
+    </mat-card> -->
+
+
+  </div>
+
+
+
+</div>
