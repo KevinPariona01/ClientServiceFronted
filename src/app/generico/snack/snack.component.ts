@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { SnackInterface } from 'src/app/helper/snack.interface';
+import { SnackInterface } from 'src/app/interface/snack.interface';
 import {MAT_SNACK_BAR_DATA} from '@angular/material/snack-bar';
 
 @Component({

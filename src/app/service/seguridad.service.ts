@@ -166,10 +166,12 @@ export class SeguridadService {
   }
 
   updatePantallaRol(data:any, token:any): Observable<any> {
-      console.log(data);        
+      console.log(data);  
+      console.log("TOKEN: ", token);
+            
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
+          'Authorization': 'Bearer ' + token.token
       });
       return this._http.post(this.url + 'seguridad/updatePantallaRol', data, { headers: reqHeader });
   }

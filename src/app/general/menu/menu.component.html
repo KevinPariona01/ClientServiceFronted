@@ -1,0 +1,84 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="!(isHandset$ | async)">
+        <mat-toolbar class="mat-elevation-z4 barra" color="primary"><label
+                class="titulo">
+                <p>Titulo</p>
+            </label>
+        </mat-toolbar>
+        <!--último iditem = 29 -->
+        <mat-nav-list>
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="idPanel == 1" >
+                    <mat-expansion-panel-header>
+                        <mat-panel-title >
+                            <mat-icon>supervisor_account</mat-icon>
+                            Seguridad
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a mat-list-item [routerLink]="['/usuario']" *ngIf="se_adusu" (click)="panel(1,1)" [ngClass]="{'select':iditem == 1}">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                        <span>Administración de Usuario</span>
+                    </a>
+
+                    <a mat-list-item [routerLink]="['/rol']" *ngIf="se_adrol" (click)="panel(1,2)" [ngClass]="{'select':iditem == 2}">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                        <span>Administración de Roles</span>
+                    </a>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-nav-list>
+        <div class="logo">
+            <img [src]="urlImagen" alt="Logo" style="max-width: 100%; height: auto;">
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar class="mat-elevation-z4 barra" color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+
+            <div>
+
+                <label style="font-size: 14px;">
+                    {{date | date: "dd/MM/yyyy"}}
+                    {{date | date: "HH:mm:ss"}}
+                </label>
+            </div>
+            <span class="example-fill-remaining-space"></span>
+            
+            <button mat-button [matMenuTriggerFor]="usuario">
+                <mat-icon >person</mat-icon>
+                <label class="titulo">
+                    <span>{{username}}-{{rol}}</span>
+                </label>
+            </button>         
+            <mat-menu #usuario="matMenu">
+                <button mat-menu-item (click)="descargarManual()">Guía</button>
+                <!-- <button mat-menu-item (click)="openDialogClave()">Cambiar Contraseña</button> -->
+                <button mat-menu-item (click)="logoff()">Cerrar Sesión</button>
+            </mat-menu>
+            <!-- <p>
+                <button mat-button [matMenuTriggerFor]="notificacion" >
+                    <mat-icon [matBadge]="notif" matBadgeColor="warn">notifications</mat-icon>
+                </button> 
+            </p>
+            <mat-menu #notificacion="matMenu" >
+                <div *ngFor="let item of Arr">         
+                    <button mat-menu-item  (click)="showNotificacion(item)">   
+                        <span class="checkView" *ngIf="!item.b_estado">•</span>
+                        <span class="checkView2" *ngIf="item.b_estado"></span>
+                        <mat-icon>dialpad</mat-icon>                     
+                        {{item.c_detalle}}
+                    </button>
+                </div>                
+            </mat-menu> -->
+        </mat-toolbar>
+        <!--Aquí va el contenido de los formularios-->
+        <ng-content>
+
+        </ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

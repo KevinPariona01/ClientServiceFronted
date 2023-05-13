@@ -8,11 +8,6 @@ import { LoginComponent } from './seguridad/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-//COMPONENTS
-
-import { BaseComponent } from './base/base.component';
-import { SnackComponent } from './generico/snack/snack.component';
-
 //MATERIAL
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,6 +15,31 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTabsModule } from '@angular/material/tabs'
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatBadgeModule} from '@angular/material/badge';
+
+//COMPONENTS
+
+import { BaseComponent } from './base/base.component';
+import { SnackComponent } from './generico/snack/snack.component';
+import { RolComponent } from './seguridad/rol/rol.component';
+import { ConfirmComponent } from './general/confirm/confirm.component';
+import { RolEditarComponent } from './seguridad/rol-editar/rol-editar.component';
+import { RolPermisosComponent } from './seguridad/rol-permisos/rol-permisos.component';
+import { MenuComponent } from './general/menu/menu.component';
+
+
+
+
 
 
 
@@ -30,6 +50,11 @@ import {MatInputModule} from '@angular/material/input';
     LoginComponent,
     BaseComponent,
     SnackComponent,
+    RolComponent,
+    ConfirmComponent,
+    RolEditarComponent,
+    RolPermisosComponent,
+    MenuComponent,
   
   ],
   imports: [
@@ -43,6 +68,17 @@ import {MatInputModule} from '@angular/material/input';
     MatSnackBarModule,
     MatDialogModule,
     MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    MatBadgeModule,
     HttpClientModule
     
   ],

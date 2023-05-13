@@ -1,0 +1,36 @@
+<div class="pantallas">
+    <table mat-table [dataSource]="tabla" matSort class="mat-elevation-z8" >
+        <!--<ng-container matColumnDef="n_idpl_elemento">
+            <th mat-header-cell *matHeaderCellDef color="error"> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.n_idpl_elemento}} </td>
+        </ng-container> -->
+        <ng-container matColumnDef="c_codigo">
+            <th mat-header-cell *matHeaderCellDef color="error"> Código </th>
+            <td mat-cell *matCellDef="let element"> {{element.c_codigo}} </td>
+        </ng-container>
+        <ng-container matColumnDef="c_nombre">
+            <th mat-header-cell *matHeaderCellDef color="error"> Nombre </th>
+            <td mat-cell *matCellDef="let element" style="max-width: 500px;"> {{element.c_nombre}} </td>
+        </ng-container>        
+        <ng-container matColumnDef="permiso">
+            <th mat-header-cell *matHeaderCellDef color="error"> Permiso </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-select placeholder="Seleccione" [multiple]="false" [(value)]="element.c_permiso">
+                    <mat-option *ngFor="let item of permisos" [value]="item.id"
+                        (click)="onSelectChange(element)">
+                        {{item.nombre}}
+                    </mat-option>
+                </mat-select>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <ng-template let-row matRowDef cdkVirtualFor [matRowDefColumns]="displayedColumns">
+            <tr mat-row></tr>
+        </ng-template>
+    </table>
+</div>
+<label style="opacity: 80%;" > 
+    <br>
+    * Sin Acceso(SA) - Consultar(CO) - Modificar(MO)
+</label>  
+

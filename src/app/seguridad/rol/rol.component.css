@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+  }
+
+.contenedorBody {
+  margin: 1%;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.mat-column-editar {
+  max-width: 35px !important;
+}
+.mat-column-c_nombre {
+  min-width: 35px !important;
+}
+.mat-column-permisos {
+  max-width: 25px !important;
+}
+.mat-column-eliminar {
+  max-width: 20px !important;
+}
+.cont{
+  align-items: center;
+}
+td.mat-cell:last-of-type,  th.mat-header-cell:last-of-type {
+  padding-right: 0px;
+}
