@@ -26,6 +26,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatButtonModule} from '@angular/material/button';
 
 //COMPONENTS
 
@@ -36,6 +38,9 @@ import { ConfirmComponent } from './general/confirm/confirm.component';
 import { RolEditarComponent } from './seguridad/rol-editar/rol-editar.component';
 import { RolPermisosComponent } from './seguridad/rol-permisos/rol-permisos.component';
 import { MenuComponent } from './general/menu/menu.component';
+import { UsuarioComponent } from './seguridad/usuario/usuario.component';
+import { UsuarioEditarComponent } from './seguridad/usuario-editar/usuario-editar.component';
+import { ResetearClaveComponent } from './generico/resetear-clave/resetear-clave.component';
 
 
 
@@ -55,6 +60,9 @@ import { MenuComponent } from './general/menu/menu.component';
     RolEditarComponent,
     RolPermisosComponent,
     MenuComponent,
+    UsuarioComponent,
+    UsuarioEditarComponent,
+    ResetearClaveComponent,
   
   ],
   imports: [
@@ -79,6 +87,8 @@ import { MenuComponent } from './general/menu/menu.component';
     MatListModule,
     MatMenuModule,
     MatBadgeModule,
+    MatSlideToggleModule,
+    MatButtonModule,
     HttpClientModule
     
   ],

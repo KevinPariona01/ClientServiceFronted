@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>{{titulo}} {{usuario.username}}</h2>
+<br>
+<div class="body">
+  <div mat-dialog-content>
+    <div class="contenedor">
+        <mat-form-field *ngIf="!data.esresetpassword">
+            <input matInput type="password" placeholder="Clave" [(ngModel)]="usuario.oldpassword" autocomplete="nope">
+            <mat-icon matSuffix>vpn_key</mat-icon>
+          </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Nueva Clave" [(ngModel)]="usuario.password" autocomplete="nope">
+        <mat-icon matSuffix>vpn_key</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Repite Nueva Clave" [(ngModel)]="usuario.confirmpassword" autocomplete="nope">
+        <mat-icon matSuffix>vpn_key</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">
+        <mat-icon>close</mat-icon>
+        <span>Salir</span>
+    </button>
+    <button button mat-stroked-button color="primary" (click)="onOkClick(data.data)" cdkFocusInitial [disabled]="usuario.password.length<5||usuario.password!=usuario.confirmpassword">
+        <mat-icon>save</mat-icon>
+        <span>Guardar</span>
+    </button>
+  </div>
+</div>

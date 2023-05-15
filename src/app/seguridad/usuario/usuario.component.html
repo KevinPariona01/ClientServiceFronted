@@ -1,0 +1,124 @@
+<app-menu>
+    <div class="contenedorBody">
+      <h2> ADMINISTRACIÓN DE USUARIOS</h2>
+      <mat-accordion >
+        <mat-expansion-panel >
+          <mat-expansion-panel-header >
+            <mat-panel-title class="cont">
+              <mat-icon matSuffix>filter_list</mat-icon> Filtros
+            </mat-panel-title>
+            <mat-panel-description>
+              Filtrado de datos en la lista
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="contenedor">
+  
+            <mat-form-field>
+              <mat-select placeholder="Roles">
+                <mat-option value="0" (click)='selectRole(0)'>
+                  -TODOS-
+                </mat-option>
+                <mat-option *ngFor="let rol of roles" [value]="rol.n_idseg_rol" (click)='selectRole(rol.n_idseg_rol)'>
+                  {{rol.c_nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-select placeholder="Estado Asignación">
+                <mat-option *ngFor="let usp of userProAsign" [value]="usp.id" (click)='selectEstadoAsignacion(usp.id)'>
+                  {{usp.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+  
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br />
+      <mat-card>
+        <div class="cont">
+          <mat-form-field>
+            <input matInput placeholder="Buscar" [(ngModel)]="textfilter" (keyup)="applyFilter($event)">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="download()" class="boton" *ngIf="permisoEdit">Descargar</button>
+        </div>
+        <table mat-table [dataSource]="tablaUsuarios" matSort class="mat-elevation-z8" >
+          <ng-container matColumnDef="editar" >
+            <th mat-header-cell *matHeaderCellDef> 
+              <button mat-icon-button (click)="openDialog(null)" *ngIf="permisoEdit">
+                <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+              </button> </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="accent" (click)="openDialog(element)" *ngIf="permisoEdit">
+                <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.c_username}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="c_nombreApellido">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres y Apellidos </th>
+            <td mat-cell *matCellDef="let element"> {{element.c_nombre1+" "+element.c_nombre2+" "+element.c_appaterno+" "+element.c_apmaterno }} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="c_dni">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> DNI </th>
+            <td mat-cell *matCellDef="let element"> {{element.c_dni}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="c_rol">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Rol </th>
+            <td mat-cell *matCellDef="let element"> {{element.c_nombre}} </td>
+          </ng-container>
+          <!-- Asignar Proyecto -->
+          <ng-container matColumnDef="asigProyecto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >Proyectos</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button (click)="openDialogProyecto(element)" color="accent" [disabled]="!permisoEdit">
+                <mat-icon aria-label="Example icon-button with a heart icon">playlist_add_check</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        
+          <!-- Button Resetear -->
+          <ng-container matColumnDef="resetear">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Clave</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button (click)="openDialogClave(element)" color="accent" [disabled]="!permisoEdit">
+                <mat-icon aria-label="Example icon-button with a heart icon">settings</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="activo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Activo </th>
+            <td mat-cell *matCellDef="let element">            
+              <mat-slide-toggle [(ngModel)]="element.b_activo" (click)="estadoUser(element)" ></mat-slide-toggle>
+            </td>
+          </ng-container>
+          <!-- Button Eliminar 
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="error" (click)="eliminar(element)" [disabled]="!permisoEdit">
+                <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>-->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <ng-template let-row matRowDef cdkVirtualFor [matRowDefColumns]="displayedColumns">
+            <tr mat-row></tr>
+  
+          </ng-template>
+  
+        </table>
+  
+        <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+      </mat-card>
+    </div>
+  </app-menu>
+  <!-- <ngx-spinner type="ball-spin-clockwise" [fullScreen] = "false" color = "#fff"><p style="color: white" > Cargando... </p></ngx-spinner> -->

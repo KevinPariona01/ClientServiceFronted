@@ -30,11 +30,11 @@ export class SeguridadService {
   } 
 
    get(request:any,token:any): Observable<any> {
+    
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
-      console.log(request)
       return this._http.post(this.url + 'seguridad/get', request, { headers: reqHeader });
   }
 
@@ -74,12 +74,14 @@ export class SeguridadService {
       return this._http.post(this.url + 'seguridad/resetearclave', data, { headers: reqHeader });
   } 
 
-  validarDatos(token:any): Observable<any> {        
+  validarDatos(token:any): Observable<any> {     
+    console.log("TOKEN: ", token);
+       
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
-      return this._http.post(this.url + 'seguridad/validarDatos',{ headers: reqHeader });
+      return this._http.post(this.url + 'seguridad/validarDatos',{},{ headers: reqHeader });
   }
 
   saveUser(data:any, token:any): Observable<any> {
@@ -100,9 +102,12 @@ export class SeguridadService {
       return this._http.post(this.url + 'seguridad/saveRol', data, { headers: reqHeader });
   }
 
-  estadoUser(data:any): Observable<any> {
-      console.log(data)
-      return this._http.post(this.url + 'seguridad/estadoUser', data);
+  estadoUser(data:any, token:any): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token.token
+    });
+      return this._http.post(this.url + 'seguridad/estadoUser', data, { headers: reqHeader });
   }
   
 

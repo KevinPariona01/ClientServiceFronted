@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>Edición {{usuario.c_username}}</h2>
+<br>
+<div class="body">
+  <form class="example-container" #newForm="ngForm" (ngSubmit)="guardar(newForm)">
+    <div mat-dialog-content class="contenedor">
+  
+      <mat-form-field>
+        <input matInput placeholder="Usuario" name="c_username" #c_username="ngModel" [(ngModel)]="usuario.c_username"
+          minlength="3" required />
+        <mat-hint class="error" *ngIf="usuario.c_username.length<3">debe tener mínimo de 3 dígitos</mat-hint>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput type="password" placeholder="Clave" name="c_password" #c_clave="ngModel"  
+          [(ngModel)]="usuario.c_clave" minlength="6" required [disabled]="editar" />
+        <mat-hint class="error" *ngIf="usuario.c_clave.length<6">debe tener mínimo de 6 dígitos</mat-hint>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput type="password" placeholder="Repita Clave" name="c_repassword" #c_repassword="ngModel"
+          [(ngModel)]="usuario.c_reclave" minlength="6" required [disabled]="editar" />
+          <mat-hint class="error" *ngIf="usuario.c_reclave.length<6">La contraseña no coincide y/o debe tener mínimo de 6 dígitos</mat-hint>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="1° Nombre" name="c_name" #c_name="ngModel" [(ngModel)]="usuario.c_nombre1" minlength="3"
+          required />
+        <mat-hint class="error" *ngIf="usuario.c_nombre1.length<3">debe tener mínimo de 3 dígitos</mat-hint>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="2° Nombre" name="c_name2" #c_name="ngModel" [(ngModel)]="usuario.c_nombre2"/>
+        <mat-hint class="error" *ngIf="usuario.c_nombre2.length>0 && usuario.c_nombre2.length<3">debe tener mínimo de 3 dígitos</mat-hint>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Apellido Paterno" name="lastName" #c_lastname="ngModel" [(ngModel)]="usuario.c_appaterno"
+          minlength="3" required />
+        <mat-hint class="error" *ngIf="usuario.c_appaterno.length<3">debe tener mínimo de 3 dígitos</mat-hint>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput placeholder="Apellido Materno" name="lastName2" #c_lastname="ngModel" [(ngModel)]="usuario.c_apmaterno"
+          minlength="3" required />
+        <mat-hint class="error" *ngIf="usuario.c_apmaterno.length<3">debe tener mínimo de 3 dígitos</mat-hint>
+      </mat-form-field>
+  
+  
+      <mat-form-field>
+        <input type="text" (keypress)="numberOnly($event)" matInput placeholder="DNI" name="c_documentid"
+          #c_documentid="ngModel" [(ngModel)]="usuario.c_dni" maxlength="8" minlength="8" required />
+        <mat-hint class="error" *ngIf="usuario.c_dni.length!=8">debe tener mínimo de 8 dígitos</mat-hint>
+      </mat-form-field>
+   
+      <mat-form-field>
+        <mat-select placeholder="Roles" [(value)]="usuario.n_idseg_rol" required>
+          <mat-option *ngFor="let rol of roles" [value]="rol.n_idseg_rol">
+            {{rol.c_nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+  
+      <button button mat-stroked-button color="primary" type="submit" cdkFocusInitial
+        [disabled]="!newForm.form.valid||usuario.n_idseg_rol==0 || usuario.c_clave != usuario.c_reclave">
+        <mat-icon>save</mat-icon>
+        <span>Guardar</span>
+      </button>
+    </div>
+  </form>
+</div>
