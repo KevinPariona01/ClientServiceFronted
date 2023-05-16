@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 export class MenuComponent extends BaseComponent implements OnInit {
 
   @Input() titulo!: String;
+  
 
   public usuario: any;
   public username: string = "Logearse";

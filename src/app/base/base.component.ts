@@ -27,7 +27,6 @@ export class BaseComponent implements OnInit {
     public snackBar: MatSnackBar, public router: Router
   ) {
     this.isLogin();
-    this.proyecto = this.getProyecto();
   }
 
   ngOnInit() {
@@ -49,16 +48,6 @@ export class BaseComponent implements OnInit {
     var currentUser = JSON.parse(localStorage.getItem('currentUser')!);
     return currentUser;
   }
-  /*public getTokenString(): String {
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    return currentUser.tocken;
-  }*/
-
-  /*
-  public getUsuarioLogin(): String {
-    var currentUser = JSON.parse(localStorage.getItem('user'));
-    return currentUser.token;
-  }*/
 
   public getUser(): any {
     var currentUser = JSON.parse(localStorage.getItem('currentUser')!);    
@@ -67,20 +56,6 @@ export class BaseComponent implements OnInit {
 
   public setToken(obj:any) {
     localStorage.setItem('currentUser', JSON.stringify(obj));
-  }
-
-  public setProyecto(obj:any) {
-    localStorage.setItem('proyecto', JSON.stringify(obj));
-  }
-
-  public getProyecto(): any {
-    var currentUser = JSON.parse(localStorage.getItem('proyecto')!);
-    return currentUser;
-  }
-
-  public getProyect(): any {
-    var currentUser = JSON.parse(localStorage.getItem('proyecto')!).c_nombre;
-    return currentUser;
   }
 
   public openSnackBar(mensaje: String, tipo: number) {
@@ -110,20 +85,14 @@ export class BaseComponent implements OnInit {
     let inputChar = String.fromCharCode(event.charCode);
     console.log('dato ingresado: ' + inputChar);
     if (!pattern.test(inputChar)) {
-      // invalid character, prevent input
       event.preventDefault();
     }
   }
 
   decimalOnly2(event: any) {
     const pattern = /[0-9\.\ ]/;
-    //const pattern = /^-?[0-9\.\ ]/;
-    //const pattern = /^-?[0-9]\d*(\.\d+)?$/;
     let inputChar = String.fromCharCode(event.charCode);
     if (!pattern.test(inputChar)) {
-      //invalid character, prevent input
-      console.log(inputChar + ' : valid');
-      //event.preventDefault();
       if (event.keyCode != 45) {
         event.preventDefault();
       }

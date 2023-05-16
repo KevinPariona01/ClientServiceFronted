@@ -41,6 +41,7 @@ import { MenuComponent } from './general/menu/menu.component';
 import { UsuarioComponent } from './seguridad/usuario/usuario.component';
 import { UsuarioEditarComponent } from './seguridad/usuario-editar/usuario-editar.component';
 import { ResetearClaveComponent } from './generico/resetear-clave/resetear-clave.component';
+import { DataUsuarioComponent } from './seguridad/data-usuario/data-usuario.component';
 
 
 
@@ -63,6 +64,7 @@ import { ResetearClaveComponent } from './generico/resetear-clave/resetear-clave
     UsuarioComponent,
     UsuarioEditarComponent,
     ResetearClaveComponent,
+    DataUsuarioComponent,
   
   ],
   imports: [
