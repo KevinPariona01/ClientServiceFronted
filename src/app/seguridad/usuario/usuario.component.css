@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+  }
+
+.contenedorBody {
+  margin: 1%;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.mat-column-editar {
+  max-width: 35px !important;
+}
+.mat-column-username {
+  max-width: 100px !important;
+}
+.mat-column-c_nombreApellido {
+  max-width: 150px !important;
+}
+.mat-column-c_dni {
+  max-width: 100px !important;
+}
+.mat-column-c_rol {
+  max-width: 100px !important;
+}
+.mat-column-asigProyecto {
+  max-width: 50px !important;
+}
+.mat-column-resetear {
+  max-width: 40px !important;
+}
+.mat-column-activo {
+  max-width: 40px !important;
+}
+
+.cont{
+  align-items: center;
+}
+.boton{
+  margin: 10px;
+}
+
+

@@ -1,3 +1,7 @@
+::ng-deep .mat-dialog-container{
+  padding: 0px !important;
+}
+
 .contenedor{
     display: flex;
     flex-direction: row;

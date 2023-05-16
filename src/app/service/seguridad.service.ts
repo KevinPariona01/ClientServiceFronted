@@ -105,54 +105,60 @@ export class SeguridadService {
   estadoUser(data:any, token:any): Observable<any> {
     var reqHeader = new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token.token
+        'Authorization': 'Bearer ' + token
     });
       return this._http.post(this.url + 'seguridad/estadoUser', data, { headers: reqHeader });
   }
   
 
-  delete(data:any): Observable<any> {
-      console.log(data)
-      return this._http.post(this.url + 'seguridad/delete_usuario', data);
+  delete(data:any, token:any): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+      return this._http.post(this.url + 'seguridad/delete_usuario', data, {headers: reqHeader});
   }
 
-  deleteRol(data:any): Observable<any> {
-      console.log(data)
-      return this._http.post(this.url + 'seguridad/deleteRol', data);
+  deleteRol(data:any, token:any): Observable<any> {
+    var reqHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+    });
+      return this._http.post(this.url + 'seguridad/deleteRol', data, { headers: reqHeader });
   }
 
-  getProyectos(token:any): Observable<any> {
+  /* getProyectos(token:any): Observable<any> {
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
       return this._http.post(this.url + 'seguridad/getProyectos', { headers: reqHeader });
-  }
+  } */
 
-  getUserPro(data:any, token:any): Observable<any> {
+ /*  getUserPro(data:any, token:any): Observable<any> {//NO SE ESTA USANDO
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
       return this._http.post(this.url + 'seguridad/getUserPro', data, { headers: reqHeader });
-  }
+  } */
 
-  saveUserPro(data:any, token:any): Observable<any> {
+  /* saveUserPro(data:any, token:any): Observable<any> {//NO SE ESTA USANDO
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
       
       return this._http.post(this.url + 'seguridad/saveUserPro', data, { headers: reqHeader });
-  }
+  } */
 
-  resetUserPro(data:any, token:any): Observable<any> {
+  /* resetUserPro(data:any, token:any): Observable<any> {
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
       return this._http.post(this.url + 'seguridad/resetUserPro', data, { headers: reqHeader });
-  }
+  } */
 
   getPantallaRol(request:any,token:any): Observable<any> {
       var reqHeader = new HttpHeaders({
@@ -171,22 +177,20 @@ export class SeguridadService {
   }
 
   updatePantallaRol(data:any, token:any): Observable<any> {
-      console.log(data);  
-      console.log("TOKEN: ", token);
             
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token.token
+          'Authorization': 'Bearer ' + token
       });
       return this._http.post(this.url + 'seguridad/updatePantallaRol', data, { headers: reqHeader });
   }
 
-  getDataUserPro(data:any, token:any): Observable<any> {     
-      console.log(data);
+  /* getDataUserPro(data:any, token:any): Observable<any> {     
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
       return this._http.post(this.url + 'seguridad/getDataUserPro', data, { headers: reqHeader });
-  }
+  } */
+  
 }

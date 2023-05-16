@@ -66,6 +66,8 @@ export class RolComponent extends BaseComponent implements OnInit {
     let request = {
       n_idseg_rol: this.idroles      
     }
+    console.log("Roles: ", request);
+    
     this._seguridad_service.getrole(request,this.getToken().token).subscribe(
       result => {
         try {
@@ -153,7 +155,7 @@ export class RolComponent extends BaseComponent implements OnInit {
       n_id_usermodi: this.usuarioLog.n_idseg_userprofile,
       c_nombre: item.c_nombre
     }
-    this._seguridad_service.deleteRol(request).subscribe(
+    this._seguridad_service.deleteRol(request, this.getToken().token).subscribe(
       result => {
         try {
           if (result.estado) {

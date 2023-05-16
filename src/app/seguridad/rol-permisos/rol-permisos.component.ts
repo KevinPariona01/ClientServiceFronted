@@ -81,7 +81,7 @@ export class RolPermisosComponent extends BaseComponent implements OnInit {
       item.n_id_usermodi = this.usuarioLog.n_idseg_userprofile
       console.log(item);
       //SE CAMBIO getProyecto a getToken
-      this._seguridad_service.updatePantallaRol(item,this.getToken()).subscribe(
+      this._seguridad_service.updatePantallaRol(item,this.getToken().token).subscribe(
         result => {
           if (result.estado) {
 

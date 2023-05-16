@@ -34,7 +34,7 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
     { id: 2, name: "Sin asignar"}
   ]
   colorPro!: string;
-  displayedColumns: string[] = ['editar', 'username', 'c_nombreApellido','c_dni', 'c_rol', 'asigProyecto','resetear', 'activo'];
+  displayedColumns: string[] = ['editar', 'username', 'c_nombreApellido','c_dni', 'c_rol','resetear', 'activo', 'eliminar'];
   public tablaUsuarios!: MatTableDataSource<any>;
   public confirmar!: Confirmar;
 
@@ -187,20 +187,6 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
     });
   }
 
-  openDialogProyecto(usuario:any): void {
-    /* let data = {
-      usuario: usuario,
-      titulo: "Asignar Proyecto"
-    };
-    const dialogAsigPro = this.dialog.open(UsuarioproyectoComponent, {
-      panelClass: 'custom-dialog-container',
-      width: '750px',
-      data: data
-    });
-    dialogAsigPro.afterClosed().subscribe(result => {
-    }); */
-  }
-
   openDialogClave(usuario:any): void {
     let data = {
       data: usuario,
@@ -226,7 +212,7 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
     }
     console.log(request);
     
-    this._seguridad_service.estadoUser(request, this.getToken()).subscribe(
+    this._seguridad_service.estadoUser(request, this.getToken().token).subscribe(
       result => {
         try {
           if (result.estado) {
@@ -254,7 +240,8 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
 
   eliminar(item:any): void {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      width: '500px',
+      panelClass: 'custom-dialog-container',
+      width: '750px',
       data: { titulo: "¿Desea eliminar el usuario " + item.c_username + "?" }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -270,7 +257,7 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
       n_idseg_userprofile: item.n_idseg_userprofile,
       n_id_usermodi: this.usuarioLog.n_idseg_userprofile
     }
-    this._seguridad_service.delete(request).subscribe(
+    this._seguridad_service.delete(request, this.getToken().token).subscribe(
       result => {
         try {
           if (result.estado) {

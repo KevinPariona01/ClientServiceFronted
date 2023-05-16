@@ -1,3 +1,7 @@
+::ng-deep .mat-dialog-container{
+  padding: 0px !important;
+}
+
 .contenedor{
     display: flex;
     flex-direction: row;
@@ -19,3 +23,5 @@ h2 {
     background-color: #1D85BF;
     color: #fff;
   }
+
+  
