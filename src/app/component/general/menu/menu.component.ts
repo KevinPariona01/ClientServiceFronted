@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
-import { BaseComponent } from 'src/app/base/base.component';
+import { BaseComponent } from 'src/app/component/base/base.component';
 import { AppSettings } from 'src/app/common/appsettings';
 import { ResultadoApi } from 'src/app/interface/common.interface';
 import { SeguridadService } from 'src/app/service/seguridad.service';
@@ -96,7 +96,7 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
   override ngOnInit() {    
     /* this.colorPro = this.proyecto.c_color    */ 
-    /* this.urlImagen = environment.urlArchivo + this.proyecto.c_rutalogo; */
+    this.urlImagen = "../../../../assets/images/logo.png";
     if (this.bLogin) {
       this.username = this.getToken().data.c_username;
       this.usuario = this.getToken().data;
@@ -383,8 +383,8 @@ export class MenuComponent extends BaseComponent implements OnInit {
 
   }
 
-  /* openDialogClave(): void {
-    console.log(this.usuario)
+  openDialogClave(): void {
+    /* console.log(this.usuario)
     let data = {
       data: this.usuario,
       titulo: "Cambiar Contraseña",
@@ -397,8 +397,8 @@ export class MenuComponent extends BaseComponent implements OnInit {
     });
     dialogRefClave.afterClosed().subscribe(result => {
 
-    });
-  } */
+    }); */
+  }
 
 
 

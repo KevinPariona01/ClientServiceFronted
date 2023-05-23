@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { BaseComponent } from 'src/app/base/base.component';
+import { BaseComponent } from 'src/app/component/base/base.component';
 import { AppSettings } from 'src/app/common/appsettings';
 import { ResultadoApi } from 'src/app/interface/common.interface';
 import { Roleditar } from 'src/app/interface/seguridad.interface';

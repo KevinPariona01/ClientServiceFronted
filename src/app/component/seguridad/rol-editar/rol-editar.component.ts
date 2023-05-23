@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { BaseComponent } from 'src/app/base/base.component';
+import { BaseComponent } from 'src/app/component/base/base.component';
 import { AppSettings } from 'src/app/common/appsettings';
 import { Role, Roleditar } from 'src/app/interface/seguridad.interface';
 import { SeguridadService } from 'src/app/service/seguridad.service';

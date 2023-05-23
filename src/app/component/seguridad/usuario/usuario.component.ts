@@ -5,14 +5,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { BaseComponent } from 'src/app/base/base.component';
+import { BaseComponent } from 'src/app/component/base/base.component';
 import { AppSettings } from 'src/app/common/appsettings';
-import { ConfirmComponent } from 'src/app/general/confirm/confirm.component';
+import { ConfirmComponent } from 'src/app/component/general/confirm/confirm.component';
 import { ResultadoApi } from 'src/app/interface/common.interface';
 import { Confirmar } from 'src/app/interface/confirmar.interface';
 import { SeguridadService } from 'src/app/service/seguridad.service';
 import { UsuarioEditarComponent } from '../usuario-editar/usuario-editar.component';
-import { ResetearClaveComponent } from 'src/app/generico/resetear-clave/resetear-clave.component';
+import { ResetearClaveComponent } from 'src/app/component/generico/resetear-clave/resetear-clave.component';
 
 @Component({
   selector: 'app-usuario',

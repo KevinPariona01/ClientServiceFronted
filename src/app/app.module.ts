@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './seguridad/login/login.component';
+import { LoginComponent } from './component/seguridad/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,17 +31,17 @@ import {MatButtonModule} from '@angular/material/button';
 
 //COMPONENTS
 
-import { BaseComponent } from './base/base.component';
-import { SnackComponent } from './generico/snack/snack.component';
-import { RolComponent } from './seguridad/rol/rol.component';
-import { ConfirmComponent } from './general/confirm/confirm.component';
-import { RolEditarComponent } from './seguridad/rol-editar/rol-editar.component';
-import { RolPermisosComponent } from './seguridad/rol-permisos/rol-permisos.component';
-import { MenuComponent } from './general/menu/menu.component';
-import { UsuarioComponent } from './seguridad/usuario/usuario.component';
-import { UsuarioEditarComponent } from './seguridad/usuario-editar/usuario-editar.component';
-import { ResetearClaveComponent } from './generico/resetear-clave/resetear-clave.component';
-import { DataUsuarioComponent } from './seguridad/data-usuario/data-usuario.component';
+import { BaseComponent } from './component/base/base.component';
+import { SnackComponent } from './component/generico/snack/snack.component';
+import { RolComponent } from './component/seguridad/rol/rol.component';
+import { ConfirmComponent } from './component/general/confirm/confirm.component';
+import { RolEditarComponent } from './component/seguridad/rol-editar/rol-editar.component';
+import { RolPermisosComponent } from './component/seguridad/rol-permisos/rol-permisos.component';
+import { MenuComponent } from './component/general/menu/menu.component';
+import { UsuarioComponent } from './component/seguridad/usuario/usuario.component';
+import { UsuarioEditarComponent } from './component/seguridad/usuario-editar/usuario-editar.component';
+import { ResetearClaveComponent } from './component/generico/resetear-clave/resetear-clave.component';
+import { DataUsuarioComponent } from './component/seguridad/data-usuario/data-usuario.component';
 
 
 

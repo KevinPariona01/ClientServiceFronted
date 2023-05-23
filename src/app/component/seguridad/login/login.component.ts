@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { BaseComponent } from 'src/app/base/base.component';
+import { BaseComponent } from 'src/app/component/base/base.component';
 import { SeguridadService } from 'src/app/service/seguridad.service';
 
 @Component({

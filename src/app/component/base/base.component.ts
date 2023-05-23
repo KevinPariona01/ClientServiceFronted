@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SnackComponent } from '../generico/snack/snack.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackInterface } from '../interface/snack.interface';
+import { SnackInterface } from '../../interface/snack.interface';
 import { Router } from '@angular/router';
-import { SeguridadService } from '../service/seguridad.service';
+import { SeguridadService } from '../../service/seguridad.service';
 
 @Component({
   selector: 'app-base',

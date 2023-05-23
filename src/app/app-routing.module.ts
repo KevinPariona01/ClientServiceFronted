@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './seguridad/login/login.component';
-import { RolComponent } from './seguridad/rol/rol.component';
-import { MenuComponent } from './general/menu/menu.component';
-import { UsuarioComponent } from './seguridad/usuario/usuario.component';
-import { DataUsuarioComponent } from './seguridad/data-usuario/data-usuario.component';
+import { LoginComponent } from './component/seguridad/login/login.component';
+import { RolComponent } from './component/seguridad/rol/rol.component';
+import { MenuComponent } from './component/general/menu/menu.component';
+import { UsuarioComponent } from './component/seguridad/usuario/usuario.component';
+import { DataUsuarioComponent } from './component/seguridad/data-usuario/data-usuario.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},

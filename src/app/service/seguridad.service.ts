@@ -75,7 +75,6 @@ export class SeguridadService {
   } 
 
   validarDatos(token:any): Observable<any> {     
-    console.log("TOKEN: ", token);
        
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',

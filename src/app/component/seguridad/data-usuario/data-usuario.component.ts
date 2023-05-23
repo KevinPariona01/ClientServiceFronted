@@ -4,7 +4,7 @@ import { Workbook } from 'exceljs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SeguridadService } from 'src/app/service/seguridad.service';
-import { BaseComponent } from 'src/app/base/base.component';
+import { BaseComponent } from 'src/app/component/base/base.component';
 
 @Component({
   selector: 'app-data-usuario',
