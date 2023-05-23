@@ -127,38 +127,6 @@ export class SeguridadService {
       return this._http.post(this.url + 'seguridad/deleteRol', data, { headers: reqHeader });
   }
 
-  /* getProyectos(token:any): Observable<any> {
-      var reqHeader = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
-      });
-      return this._http.post(this.url + 'seguridad/getProyectos', { headers: reqHeader });
-  } */
-
- /*  getUserPro(data:any, token:any): Observable<any> {//NO SE ESTA USANDO
-      var reqHeader = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
-      });
-      return this._http.post(this.url + 'seguridad/getUserPro', data, { headers: reqHeader });
-  } */
-
-  /* saveUserPro(data:any, token:any): Observable<any> {//NO SE ESTA USANDO
-      var reqHeader = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
-      });
-      
-      return this._http.post(this.url + 'seguridad/saveUserPro', data, { headers: reqHeader });
-  } */
-
-  /* resetUserPro(data:any, token:any): Observable<any> {
-      var reqHeader = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
-      });
-      return this._http.post(this.url + 'seguridad/resetUserPro', data, { headers: reqHeader });
-  } */
 
   getPantallaRol(request:any,token:any): Observable<any> {
       var reqHeader = new HttpHeaders({
@@ -185,12 +153,12 @@ export class SeguridadService {
       return this._http.post(this.url + 'seguridad/updatePantallaRol', data, { headers: reqHeader });
   }
 
-  getDataUserPro(data:any, token:any): Observable<any> {     
+  getDataUser(data:any, token:any): Observable<any> {     
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
-      return this._http.post(this.url + 'seguridad/getDataUserPro', data, { headers: reqHeader });
+      return this._http.post(this.url + 'seguridad/getDataUser', data, { headers: reqHeader });
   }
   
 }

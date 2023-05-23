@@ -32,7 +32,7 @@ export class DataUsuarioComponent extends BaseComponent implements OnInit {
     let request = {
       //n_idpro_proyecto: this.proyecto.n_idpro_proyecto,     
     }    
-    this._seguridad_service.getDataUserPro(request, this.getToken().token).subscribe(
+    this._seguridad_service.getDataUser(request, this.getToken().token).subscribe(
       result => {        
         this.dataUser = result.data;
         this.downloadPlantillaLinea(this.dataUser);
