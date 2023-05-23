@@ -1,6 +1,9 @@
 ::ng-deep .mat-dialog-container{
   padding: 0px !important;
 }
+.pantallas{
+  padding: 4%;
+}
 
 .contenedor {
     display: flex;
@@ -18,5 +21,8 @@
   .pantallas {
     height: 400px;
     overflow-y: scroll;
+  }
+  .leyenda{
+    padding: 2%;
   }
   

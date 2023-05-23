@@ -13,6 +13,7 @@ import { Confirmar } from 'src/app/interface/confirmar.interface';
 import { SeguridadService } from 'src/app/service/seguridad.service';
 import { RolEditarComponent } from '../rol-editar/rol-editar.component';
 import { RolPermisosComponent } from '../rol-permisos/rol-permisos.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-rol',
@@ -45,13 +46,13 @@ export class RolComponent extends BaseComponent implements OnInit {
     public override router: Router,
     public _seguridad_service: SeguridadService,
     public dialog: MatDialog,
-    /* private spinner: NgxSpinnerService */
+    private spinner: NgxSpinnerService
   ) { 
     super(snackBar, router);
   }
 
   override ngOnInit() {
-    /* this.spinner.show(); */
+    this.spinner.show();
     this.usuarioLog = this.getUser().data;
     this.getPantallaRol();
     this.getrole();    
@@ -76,19 +77,19 @@ export class RolComponent extends BaseComponent implements OnInit {
             this.tablaRoles = new MatTableDataSource<any>(result.data);
             this.tablaRoles.sort = this.sort;
             this.tablaRoles.paginator = this.paginator;
-            /* this.spinner.hide(); */
+            this.spinner.hide();
           } else {
-            /* this.spinner.hide(); */
+            this.spinner.hide();
             this.openSnackBar(result.mensaje, 99);
           }
         } catch (error) {
-          /* this.spinner.hide(); */
+          this.spinner.hide();
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         } finally {
           //this.applyFilter(this.textfilter);
         }
       }, error => {
-        /* this.spinner.hide(); */
+        this.spinner.hide();
         this.openSnackBar(error.error, 99);
       });
   }

@@ -38,14 +38,14 @@ export class SeguridadService {
       return this._http.post(this.url + 'seguridad/get', request, { headers: reqHeader });
   }
 
-  getUserSinAsignacion(request:any,token:any): Observable<any> {
+  /* getUserSinAsignacion(request:any,token:any): Observable<any> {
       var reqHeader = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
       });
       console.log(request)
       return this._http.post(this.url + 'seguridad/getUserSinAsignacion', request, { headers: reqHeader });
-  }
+  } */
 
   getrole(request:any,token:any): Observable<any> {
       var reqHeader = new HttpHeaders({

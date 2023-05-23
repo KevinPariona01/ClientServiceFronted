@@ -13,6 +13,8 @@ import { Confirmar } from 'src/app/interface/confirmar.interface';
 import { SeguridadService } from 'src/app/service/seguridad.service';
 import { UsuarioEditarComponent } from '../usuario-editar/usuario-editar.component';
 import { ResetearClaveComponent } from 'src/app/component/generico/resetear-clave/resetear-clave.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-usuario',
@@ -27,12 +29,7 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
   roles:any= [];
   idroles = 0;
   textfilter = '';
-  idAsignPro = 0;
 
-  userProAsign = [
-    { id: 1, name: "Asignado" },
-    { id: 2, name: "Sin asignar"}
-  ]
   colorPro!: string;
   displayedColumns: string[] = ['editar', 'username', 'c_nombreApellido','c_dni', 'c_rol','resetear', 'activo', 'eliminar'];
   public tablaUsuarios!: MatTableDataSource<any>;
@@ -47,16 +44,14 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
     public _seguridad_service: SeguridadService,
     //public _general_service: GeneralService,
     public dialog: MatDialog,
-    //private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService
   ) {
     super(snackBar, router);
   }
 
   override ngOnInit() {
-    //this.spinner.show();
-    //this.colorPro = this.proyecto.c_color    
+    this.spinner.show();
     this.usuarioLog = this.getUser().data;
-    //console.log(this.usuarioLog);
     
     this.getPantallaRol();
     this.getrole();
@@ -64,29 +59,16 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
   }
 
   selectRole(n_idseg_rol:any) {
-    console.log("idAsignPro: "+this.idAsignPro);
-    this.idroles = n_idseg_rol;
-    if (this.idAsignPro == 2) {
-      this.getUserSinAsignacion();
-    } else {      
+    this.idroles = n_idseg_rol; 
       this.getTablaUsuario();
-    }
     
   }
 
-  selectEstadoAsignacion(id:any){
-    this.idAsignPro = id;
-    if(id == 2){
-      this.getUserSinAsignacion();
-    }else{
-      this.getTablaUsuario();
-    }
-  }
+
 
   getTablaUsuario() {
     let request = {
       n_idseg_rol: this.idroles,
-      n_idpro_proyecto: 5//this.proyecto.n_idpro_proyecto
     }
     
     this._seguridad_service.get(request, this.getToken().token).subscribe(
@@ -97,20 +79,18 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
             this.tablaUsuarios = new MatTableDataSource<any>(result.data);
             this.tablaUsuarios.sort = this.sort;
             this.tablaUsuarios.paginator = this.paginator;
-            //this.spinner.hide();
+            this.spinner.hide();
           } else {
-            //this.spinner.hide();
+            this.spinner.hide();
             this.openSnackBar(result.mensaje, 99);
           }
         } catch (error) {
-          //this.spinner.hide();
+          this.spinner.hide();
           this.openSnackBar(AppSettings.SERVICE_NO_CONECT_SERVER, 99);
         } finally {
-          //this.applyFilter(this.textfilter);
         }
       }, error => {
-        //this.spinner.hide();
-        
+        this.spinner.hide();
         this.openSnackBar(error.error, 99);
       });
   }
@@ -136,7 +116,7 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
       });
   }
 
-  getUserSinAsignacion(){
+  /* getUserSinAsignacion(){
 
     let request = {
       n_idseg_rol: this.idroles,
@@ -162,7 +142,7 @@ export class UsuarioComponent extends BaseComponent implements OnInit {
         this.openSnackBar(error.error, 99);
       });
 
-  }
+  } */
 
   applyFilter(filterValue: any) {
     console.log("data: ",filterValue );

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/seguridad/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 //MATERIAL
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -91,7 +92,8 @@ import { DataUsuarioComponent } from './component/seguridad/data-usuario/data-us
     MatBadgeModule,
     MatSlideToggleModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
     
   ],
   providers: [],

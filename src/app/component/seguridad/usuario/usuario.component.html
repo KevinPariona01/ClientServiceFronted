@@ -24,13 +24,13 @@
               </mat-select>
             </mat-form-field>
   
-            <mat-form-field>
+            <!-- <mat-form-field>
               <mat-select placeholder="Estado Asignación">
                 <mat-option *ngFor="let usp of userProAsign" [value]="usp.id" (click)='selectEstadoAsignacion(usp.id)'>
                   {{usp.name}}
                 </mat-option>
               </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
   
         </mat-expansion-panel>
@@ -110,4 +110,4 @@
       </mat-card>
     </div>
   </app-menu>
-  <!-- <ngx-spinner type="ball-spin-clockwise" [fullScreen] = "false" color = "#fff"><p style="color: white" > Cargando... </p></ngx-spinner> -->
+  <ngx-spinner type="ball-spin-clockwise" [fullScreen] = "false" color = "#fff"><p style="color: white" > Cargando... </p></ngx-spinner>

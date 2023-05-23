@@ -25,6 +25,7 @@
     "file-saver": "^2.0.5",
     "fs": "0.0.1-security",
     "ngx-socket-io": "^4.5.1",
+    "ngx-spinner": "^8.1.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

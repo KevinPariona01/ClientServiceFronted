@@ -10,6 +10,7 @@ import { ResultadoApi } from 'src/app/interface/common.interface';
 import { SeguridadService } from 'src/app/service/seguridad.service';
 import { SocketService } from 'src/app/service/socket.service';
 import { environment } from 'src/environments/environment';
+import { ResetearClaveComponent } from '../../generico/resetear-clave/resetear-clave.component';
 
 @Component({
   selector: 'app-menu',
@@ -112,108 +113,6 @@ export class MenuComponent extends BaseComponent implements OnInit {
     }
     
   }
-  /* getNotificacion(){
-    this.detalleArr = [];
-    this.detalleArrMon = [];
-    this.Arr = [];
-    var request = {
-      n_idseg_userprofile: this.usuario.n_idseg_userprofile,   
-      n_idpro_proyecto: this.proyecto.n_idpro_proyecto
-    }
-    
-    this._confiGeneral_service.getNotificacion(request, this.getToken().token).subscribe(
-      result => {
-          if (result.estado) {
-            let n = 0;
-            result.data.forEach(element => {
-              if (!element.b_estado) {
-                n++;
-              } 
-              this.detalleArr = result.data;
-            });           
-            if (n <= 0) {
-              this.notif = "";  
-            }else{
-              this.notif = n.toString();
-            }
-            
-            this._confiGeneral_service.getNotificacionDetalle(request, this.getToken().token).subscribe(
-              result => {
-                  if (result.estado) {
-                    this.detalleArrMon = result.data                    
-                    this.detalleArr.forEach(element => {
-                      let arrAux = []
-                      this.detalleArrMon.forEach(e => {
-                        if (element.n_idg_notificacion == e.n_idg_notificacion) {
-                          arrAux.push(e.c_codigo_mon)
-                        }
-                      });
-                      let item = {
-                        n_idg_notificacion: element.n_idg_notificacion,
-                        n_idseg_userprofile: element.n_idseg_userprofile,
-                        c_detalle: element.c_detalle,
-                        b_estado: element.b_estado,
-                        b_almacen: element.b_almacen,
-                        options: arrAux,
-                      }
-                      this.Arr.push(item)
-                    });
-                  } else {
-                    this.openSnackBar(result.mensaje, 99);
-                  }
-              }, error => {
-                this.openSnackBar(error.error, 99);
-              });
-          } else {
-            this.openSnackBar(result.mensaje, 99);
-          }
-      }, error => {
-        this.openSnackBar(error.error, 99);
-      });
-  } */
-
-  /* showNotificacion(item){
-    console.log(item);
-    let request = {
-      n_idg_notificacion: item.n_idg_notificacion,     
-    }
-    if (item.b_almacen) {      
-      this._confiGeneral_service.showNotificacion(request, this.getToken().token).subscribe(
-        result => {
-            if (result.estado) {
-              this.getNotificacion()
-              const dialogRef = this.dialog.open(DatosAlmacenPopupComponent, {
-                width: '750px', 
-                data: { n_idg_notificacion: item.n_idg_notificacion}
-              });
-              dialogRef.afterClosed().subscribe(result => {
-              });
-            } else {
-              this.openSnackBar(result.mensaje, 99);
-            }
-        }, error => {
-          this.openSnackBar(error.error, 99);
-        });
-      
-    }else{      
-      this._confiGeneral_service.showNotificacion(request, this.getToken().token).subscribe(
-        result => {
-            if (result.estado) {
-              this.getNotificacion()
-              const dialogRef = this.dialog.open(DatosMonitoreoPopupComponent, {
-                width: '950px', 
-                data: { n_idg_notificacion: item.n_idg_notificacion}
-              });
-              dialogRef.afterClosed().subscribe(result => {
-              });
-            } else {
-              this.openSnackBar(result.mensaje, 99);
-            }
-        }, error => {
-          this.openSnackBar(error.error, 99);
-        });
-    }
-  } */
 
   getRolUser() {
     let request = {
@@ -384,20 +283,20 @@ export class MenuComponent extends BaseComponent implements OnInit {
   }
 
   openDialogClave(): void {
-    /* console.log(this.usuario)
+    console.log(this.usuario)
     let data = {
       data: this.usuario,
       titulo: "Cambiar Contraseña",
       esresetpassword: false
     };
 
-    const dialogRefClave = this.dialog.open(ResetearclaveComponent, {
+    const dialogRefClave = this.dialog.open(ResetearClaveComponent, {
       width: '750px',
       data: data
     });
     dialogRefClave.afterClosed().subscribe(result => {
 
-    }); */
+    });
   }
 
 
