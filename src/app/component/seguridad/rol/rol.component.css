@@ -13,10 +13,10 @@ table {
   flex-wrap: wrap;
 }
 .mat-column-editar {
-  max-width: 35px !important;
+  max-width: 10px !important;
 }
 .mat-column-c_nombre {
-  min-width: 35px !important;
+  min-width: 65px !important;
 }
 .mat-column-permisos {
   max-width: 25px !important;
